@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Virtual Poster</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+
+    <script src="js/Poster.js"></script>
+    <script src="js/CursorEvent.js"></script>
+  </head>
+  <body>
+    <a-scene id="main-scene">
+      <a-sky id="main-container" radius="5000" color="#98DAF"></a-sky>
+      <a-entity id="places-container" poster></a-entity>
+    </a-scene>
+        <a-scene background="color:#90caf9">
+        <!-- Ground -->
+        <a-plane
+           id="ground"
+           color="#78909c"
+           width="200"
+           height="100"
+           rotation="-90 0 0"
+        ></a-plane>
+   <!-- Poster Container --> 
+        <a-entity id="posters-container" comics-posters> </a-entity>
+      <a-camera id="camera" wasd-controls="disabled:false;" position="0 10 20"></a-camera>
+      <a-entity
+        id="app-title"
+        position="0 0.73 -1"
+        text="font: exo2bold; align: center; width:2; color: #000; value: Get Your Favourite Comics"
+      ></a-entity>
+
+      <a-entity 
+      id="camera-cursor"
+      cursor
+      position="0 0 -3"
+      geometry="primitive: ring; radiusInner: 0.08; radiusOuter: 0.12"
+      material="color: orange; shader: flat"
+      >
+    </a-entity>
+
+    <a-entity
+        id="fadeBackground"
+        geometry="primitive: sphere; radius: 2.5"
+        material="color: black; side: back; shader:flat; transparent: true; opacity:0.6"
+        visible="false"
+        cursor-listener
+    >
+  </a-entity>
+    </a-scene>
+  </body>
+</html>
